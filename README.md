@@ -1,25 +1,25 @@
 # API CRUD de Usuários com Node.js, Express e Firebase Firestore
 
-Este projeto implementa uma API RESTful básica para realizar operações CRUD (Criar, Ler, Atualizar, Deletar) em uma coleção de usuários armazenada no Firebase Firestore.
+Este projeto implementa uma API RESTful básica para realizar operações **CRUD** (Criar, Ler, Atualizar, Deletar) em uma coleção de usuários armazenada no **Firebase Firestore**.
 
-## Funcionalidades
+## ✨ Funcionalidades
 
-*   Criação de novos usuários com nome, email e senha (senha é armazenada com hash bcrypt).
+*   Criação de novos usuários com nome, email e senha (senha é armazenada com hash **bcrypt**).
 *   Listagem de todos os usuários cadastrados.
 *   Busca de um usuário específico por ID.
 *   Atualização dos dados (nome e email) de um usuário existente.
 *   Deleção de um usuário por ID.
-*   Uso de HATEOAS para links de navegação na API.
+*   Uso de **HATEOAS** para links de navegação na API.
 *   Validação básica de entrada e tratamento de erros.
 
-## Pré-requisitos
+## 🛠️ Pré-requisitos
 
-*   [Node.js](https://nodejs.org/) (versão LTS recomendada)
-*   [npm](https://www.npmjs.com/) (geralmente instalado com o Node.js) ou [Yarn](https://yarnpkg.com/)
-*   [Git](https://git-scm.com/)
-*   Uma conta Google para usar o Firebase.
+*   [**Node.js**](https://nodejs.org/) (versão LTS recomendada)
+*   [**npm**](https://www.npmjs.com/) (geralmente instalado com o Node.js) ou [**Yarn**](https://yarnpkg.com/)
+*   [**Git**](https://git-scm.com/)
+*   Uma conta **Google** para usar o Firebase.
 
-## Configuração e Execução
+## 🚀 Configuração e Execução
 
 Siga os passos abaixo para configurar e executar o projeto localmente:
 
@@ -31,16 +31,16 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
     *Substitua `<URL_DO_SEU_REPOSITORIO>` pela URL do seu repositório Git.*
 
 2.  **Configurar o Firebase:**
-    *   Acesse o [Console do Firebase](https://console.firebase.google.com/).
-    *   Clique em "Adicionar projeto" e siga as instruções para criar um novo projeto gratuito.
-    *   No menu lateral do seu novo projeto, vá para "Build" -> "Firestore Database".
-    *   Clique em "Criar banco de dados".
+    *   Acesse o [**Console do Firebase**](https://console.firebase.google.com/).
+    *   Clique em "**Adicionar projeto**" e siga as instruções para criar um novo projeto gratuito.
+    *   No menu lateral do seu novo projeto, vá para "**Build**" -> "**Firestore Database**".
+    *   Clique em "**Criar banco de dados**".
     *   Escolha o modo de **teste** (permitir leitura e escrita por um período) ou **produção** (configure as regras de segurança adequadamente se escolher produção).
     *   Selecione a localização do servidor Firestore (recomenda-se a mais próxima de você).
     *   Aguarde a criação do banco de dados.
-    *   No menu lateral, clique no ícone de engrenagem ao lado de "Visão geral do projeto" e selecione "Configurações do projeto".
-    *   Vá para a aba "Contas de serviço".
-    *   Clique no botão "Gerar nova chave privada". Confirme a geração.
+    *   No menu lateral, clique no ícone de engrenagem ⚙️ ao lado de "**Visão geral do projeto**" e selecione "**Configurações do projeto**".
+    *   Vá para a aba "**Contas de serviço**".
+    *   Clique no botão "**Gerar nova chave privada**". Confirme a geração.
     *   Um arquivo JSON (geralmente nomeado como `<nome-do-projeto>-firebase-adminsdk-<hash>-<hash>.json`) será baixado.
     *   **Renomeie** este arquivo para `serviceAccountKey.json`.
     *   **Mova** o arquivo `serviceAccountKey.json` para a **raiz** do diretório do projeto clonado (a pasta `api-crud-firebase`).
@@ -78,18 +78,31 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
     ```bash
     node index.js
     ```
-    O servidor deverá iniciar e exibir mensagens no console indicando que está rodando na porta especificada (padrão 3001) e que o Firebase Admin SDK foi inicializado.
+    O servidor deverá iniciar e exibir mensagens no console indicando que está rodando na porta especificada (padrão `3001`) e que o Firebase Admin SDK foi inicializado.
 
-## Endpoints da API
+## 📡 Endpoints da API
 
 A API estará disponível na URL base configurada (padrão: `http://localhost:3001`).
 
 *   **`POST /usuarios`**: Cria um novo usuário.
-    *   Corpo da requisição (JSON): `{ "nome": "...", "email": "...", "senha": "..." }`
+    *   **Corpo da requisição (JSON):**
+        ```json
+        {
+          "nome": "...",
+          "email": "...",
+          "senha": "..."
+        }
+        ```
 *   **`GET /usuarios`**: Lista todos os usuários.
 *   **`GET /usuarios/:id`**: Busca um usuário pelo seu ID.
 *   **`PUT /usuarios/:id`**: Atualiza o nome e/ou email de um usuário.
-    *   Corpo da requisição (JSON): `{ "nome": "...", "email": "..." }` (pelo menos um campo é necessário)
+    *   **Corpo da requisição (JSON):** (pelo menos um campo é necessário)
+        ```json
+        {
+          "nome": "...",
+          "email": "..."
+        }
+        ```
 *   **`DELETE /usuarios/:id`**: Deleta um usuário pelo seu ID.
 
-Você pode usar ferramentas como [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), ou `curl` para interagir com a API.
+Você pode usar ferramentas como [**Postman**](https://www.postman.com/), [**Insomnia**](https://insomnia.rest/), ou `curl` para interagir com a API.
